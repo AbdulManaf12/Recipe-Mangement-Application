@@ -30,12 +30,12 @@ app.get("/get_data", async (req, res) => {
 
 app.post("/add-recipe/", (req, res) => {
   Recipe.insertMany(req.body);
-  console.log(req.body);
   res.send("Data saved successfully.");
 });
 
 app.post("/recipe/:id/delete", async (req, res) => {
-  Recipe.deleteOne({ _id: req.params.id });
+  Recipe.deleteMany({ _id: req.params.id });
+  console.log(req.params.id);
   res.send("Data deleted successfully.");
 });
 

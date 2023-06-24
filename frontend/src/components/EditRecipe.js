@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-export default function AddRecipe() {
+export default function EditRecipe() {
+    const [recipe, setRecipe] = useState();
+
+    useEffect(() => {
+        fetch("/get_data")
+            .then((res) => res.json())
+            .then((data) => {
+                setRecipe(data);
+            });
+    }, []);
+    
   return (
     <div>
       <form action="/add-recipe" method="POST">
-        <div className="form-group w-50 center">
+        <div className="form-group w-50">
           <label htmlFor="title">Title</label>
           <input type="text" className="form-control" id="title" name="title" />
 

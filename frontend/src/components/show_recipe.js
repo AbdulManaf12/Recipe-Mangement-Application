@@ -23,12 +23,8 @@ export default function ShowRecipe() {
             <p>Ingredients: {recipe.ingredients}</p>
             <p>Instructions: {recipe.instructions}</p>
             <p>Price: {recipe.price}</p>
-            <forms action={"/recipe/" + recipe._id + "/edit"} method="POST">
-              <input type="submit" value="Edit" className="btn btn-primary" />
-            </forms>
-            <forms action={"/recipe/" + recipe._id + "/delete"} method="POST">
-              <input type="submit" value="Delete" className="btn btn-danger" />
-            </forms>
+            <a href={"/recipe/" + recipe._id + "/edit"} className="btn btn-primary">Edit</a>
+            <a href={"/recipe/" + recipe._id + "/delete"} className="btn btn-danger">Delete</a>
           </div>
         ))
       )}

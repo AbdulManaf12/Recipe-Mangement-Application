@@ -1,12 +1,14 @@
 import React from "react";
-import NavBar from "./components/navBar";
 import ShowRecipe from "./components/show_recipe";
+import AddRecipe from "./components/AddRecipe";
 
 function App() {
   return (
     <div>
-      <NavBar />
-      <h1>Recipes</h1>
+      <h1 className="text-center">Recipes</h1>
+      <h3>Add New Recipe</h3>
+      <AddRecipe />
+      <h3>Display All Recipe</h3>
       <ShowRecipe />
     </div>
   );
