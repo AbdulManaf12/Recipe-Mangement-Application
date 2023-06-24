@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-export default function ShowRecipe() {
+export default function Search() {
   const [recipe, setRecipe] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     fetch("/get_data")
@@ -33,16 +35,43 @@ export default function ShowRecipe() {
       });
   };
 
+  const handleSearch = () => {
+    const results = recipe.filter((item) =>
+      item.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setSearchResults(results);
+  };
+
+  const handleSearchInputChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div>
-      {recipe.length === 0 ? (
-        <div>No recipe data available.</div>
+    <div className="center">
+      <div>
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={handleSearchInputChange}
+          placeholder="Search by recipe name"
+        />
+        <button onClick={handleSearch} className="btn btn-success">
+          Search
+        </button>
+      </div>
+      {searchResults.length === 0 ? (
+        <div>
+          No search results.<br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+        </div>
       ) : (
-        recipe.map((recipe) => (
+        searchResults.map((recipe) => (
           <div
             className="border border-success m-5 p-5 bg-info"
             key={recipe._id}

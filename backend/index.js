@@ -34,14 +34,22 @@ app.post("/add-recipe/", (req, res) => {
 });
 
 app.post("/recipe/:id/delete", async (req, res) => {
-  Recipe.deleteMany({ _id: req.params.id });
-  console.log(req.params.id);
-  res.send("Data deleted successfully.");
+  try {
+    await Recipe.deleteMany({ _id: req.params.id });
+    console.log(req.params.id);
+    res.send("Data deleted successfully.");
+  } catch (error) {
+    res.status(500).send("An error occurred while deleting the data.");
+  }
 });
 
 app.post("/recipe/:id/edit", async (req, res) => {
-  Recipe.updateOne({ _id: req.params.id }, req.body);
-  res.send("Data updated successfully.");
+  try {
+    await Recipe.updateOne({ _id: req.params.id }, req.body);
+    res.send("Data updated successfully.");
+  } catch (error) {
+    res.status(500).send("An error occurred while updating the data.");
+  }
 });
 
 app.listen(3000, () => {
