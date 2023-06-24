@@ -1,0 +1,22 @@
+db.recipes.insertMany([
+{
+  "title": "Pizza",
+  "ingredients": "Bread, Cheese, Tomato Sauce, Pepperoni",
+  "instructions": "Put the tomato sauce on the bread, then put the cheese on the tomato sauce, then put the pepperoni on the cheese.",
+  "price": 10,
+  "imageUrl": "https://realfood.tesco.com/media/images/1400x919-PEPERONATA-PIZZAS-4075eae9-f803-4691-b1f1-7d8886bb124f-0-1400x919.jpg"
+},
+{
+  "title": "Pasta",
+  "ingredients": "Pasta, Tomato Sauce, Cheese",
+  "instructions": "Put the tomato sauce on the pasta, then put the cheese on the tomato sauce.",  
+  "price": 8,
+  "imageUrl": "https://realfood.tesco.com/media/images/1400x919-ConfettiPasta-d192c935-4fd3-4b23-bbee-7d25749f0a00-0-1400x919.jpg"
+},
+{
+  "title": "Salad",
+  "ingredients": "Lettuce, Tomato, Cheese, Dressing",
+  "instructions": "Put the lettuce on the plate, then put the tomato on the lettuce, then put the cheese on the tomato, then put the dressing on the cheese.",
+  "price": 6,
+  "imageUrl": "https://realfood.tesco.com/media/images/1400x919-Spicy-chicken-and-cous-cous-salad-recipe-c55cead2-25dc-4101-a431-6307bde82813-0-1400x919.jpg"
+}])

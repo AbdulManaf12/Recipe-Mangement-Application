@@ -9,4 +9,5 @@ const recipeSchema = new Schema({
   imageUrl: { type: String, required: true },
 });
 
-module.exports = mongoose.model("Recipe", recipeSchema);
+module.exports = mongoose.model("recipes", recipeSchema);
+
